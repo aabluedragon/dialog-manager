@@ -87,6 +87,6 @@ this.$.dm.start().title('Title').body('Body').confirm('Mkay').attrs({
          'entry-animation':'scale-up-animation',
          'with-backdrop':'true',
          'exit-animation':'fade-out-animation'
-      };).open();
+      }).open();
 ```
 Note that adding attributes like that will make the dialog-manager ignore it's `defaultAttributes` for that particular dialog.
