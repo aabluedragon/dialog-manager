@@ -24,6 +24,13 @@ start() beins the dialog constuction, open() returns a reference to the construc
 this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').build().open();
 ```
 
+To get a reference to your dialog, you could use both `build` or `open`, for example:
+```javascript
+var dialog = this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').open();
+dialog.close() // The use will see nothing, because we have opened and closed the dialog immediately.
+```
+Note that after a dialog has finished it's process, the dialog-manager removes it from the DOM completely for convenience.
+
 For convenience, you can have a callback for once the dialog has been closed:
 ```javascript
 this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').open(function(arg){
@@ -33,9 +40,35 @@ this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').open
    }
 });
 ```
-Note: if you called `build` before open, the the `build` function takes the callback instead of `open`.
+Note: if you called `build` before open, then `build` takes the callback instead of `open`.
 
 You can add a dismiss button:
 ```javascript
 this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').dismiss('No thanks').open();
 ```
+
+Creating a dialog using plain HTML as the content:
+```javascript
+this.$.dm.start().html(`
+      <h2>Dialog Title</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div class="buttons">
+        <paper-button >More Info...</paper-button>
+        <paper-button dialog-dismiss>Decline</paper-button>
+        <paper-button dialog-confirm autofocus>Accept</paper-button>
+      </div>`).open();
+```
+Note that you should send the HTML string withou the `<paper-dialog>...</paper-dialog>` part.
+
+Appending HTML to the bottom of the dialog:
+```javascript
+this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').dismiss('No thanks').appendHtml("<div>Extra content</div>").open();
+```
+Note that as opposed to `appendHtml()`, the `html()` function prepends your html content.
+
+Create a spinner dialog:
+```javascript
+this.$.dm.start().spinner().dismiss('Cancel').open();
+```
+Note that adding a spinner implicitly adds a `modal="true"` attribute to your dialog to prevent closing it by clicking outside the dialog box.
+
