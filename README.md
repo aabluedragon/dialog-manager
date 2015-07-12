@@ -35,7 +35,7 @@ For convenience, you can have a callback for once the dialog has been closed:
 ```javascript
 this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').open(function(arg){
    console.log("iron-overlay-closed has been triggered");
-   if(arg.detail.confirmed === false) {
+   if(arg.detail.confirmed === true) {
      console.log('Class dismissed');
    }
 });
