@@ -9,7 +9,7 @@ dialog-manager's purpose is to allow you to create polymer paper dialogs program
 
 If you have used [angular material dialogs](https://material.angularjs.org/latest/#/demo/material.components.dialog), the syntax should be familiar to you.
 
-Simple dialog example: ⋅⋅
+Simple dialog example: <br/>
 Place the element in your html: 
 ```html
 <dialog-manager id="dm"></dialog-manager>
