@@ -33,9 +33,9 @@ Note that after a dialog has finished it's process, the dialog-manager removes i
 
 For convenience, you can have a callback for once the dialog has been closed:
 ```javascript
-this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').open(function(arg){
+this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').dismiss('Nah').open(function(arg){
    console.log("iron-overlay-closed has been triggered");
-   if(arg.detail.confirmed === true) {
+   if(arg.detail.confirmed === false) {
      console.log('Class dismissed');
    }
 });
