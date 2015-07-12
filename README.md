@@ -19,7 +19,7 @@ Then call
 this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').open();
 ```
 
-start() beins the dialog constuction, open() returns a reference to the constructed paper-dialog so you can manipulate it later, while you could also call build() first, which also returns it, and then call open() after you have finished preparing the dialog:
+`start()` begins the dialog constuction, `open()` returns a reference to the constructed paper-dialog so you can manipulate it later, while you could also call build() first, which also returns it, and then call open() after you have finished preparing the dialog:
 ```javascript
 this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').build().open();
 ```
