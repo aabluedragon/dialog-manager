@@ -2,7 +2,7 @@
 A dialog manager for Polymer's paper-dialog.
 
 Install by running
-`bower install aabluedragon/dialog-manager`, then import dialog-manager by adding it to your html:
+`bower install aabluedragon/dialog-manager --save`, then import dialog-manager by adding it to your html:
 `<link rel="import" href="../bower_components/dialog-manager/dialog-manager.html">`
 
 dialog-manager's purpose is to allow you to create polymer paper dialogs programmatically, which grants you the ability to easily modify your dialogs by code, and even show multiple dialogs.
