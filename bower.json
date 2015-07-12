@@ -5,7 +5,7 @@
     "Alon Amir (aabluedragon@gmail.com)"
   ],
   "description": "A dialog manager for Polymer's paper-dialog.",
-  "main": "dialog-manager/dialog-manager.html",
+  "main": "dialog-manager.html",
   "keywords": [
     "polymer",
     "paper",
