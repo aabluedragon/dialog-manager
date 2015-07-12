@@ -1,0 +1,42 @@
+{
+  "name": "dialog-manager",
+  "version": "1.0.0",
+  "authors": [
+    "Alon Amir (aabluedragon@gmail.com)"
+  ],
+  "description": "A dialog manager for Polymer's paper-dialog.",
+  "main": "dialog-manager/dialog-manager.html",
+  "keywords": [
+    "polymer",
+    "paper",
+    "dialog",
+    "popup",
+    "modal",
+    "manager",
+    "dialog-manager",
+    "pop",
+    "up",
+    "aabluedragon",
+    "alon",
+    "amir"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~1.0.6",
+    "paper-dialog": "PolymerElements/paper-dialog#~1.0.0",
+    "paper-button": "PolymerElements/paper-button#~1.0.2",
+    "paper-spinner": "PolymerElements/paper-spinner#~1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aabluedragon/dialog-manager.git"
+  }
+}

@@ -1,0 +1,139 @@
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-button/paper-button.html" />
+<link rel="import" href="../paper-dialog/paper-dialog.html" />
+<link rel="import" href="../paper-spinner/paper-spinner.html" />
+
+<dom-module id="dialog-manager">
+
+   <script>
+      function DialogBuilder(polymerElementRef) {
+         this._html = '';
+         this._appendHtml = '';
+         this._polymerElementRef = polymerElementRef;
+      }
+
+      DialogBuilder.prototype.html = function(html) {
+         this._html = html;
+         return this;
+      };
+
+      DialogBuilder.prototype.appendHtml = function(appendHtml) {
+         this._appendHtml = appendHtml;
+         return this;
+      };
+
+      DialogBuilder.prototype.title = function(title) {
+         this._title = title;
+         return this;
+      };
+
+      DialogBuilder.prototype.body = function(body) {
+         this._body = body;
+         return this;
+      };
+
+      DialogBuilder.prototype.confirm = function(confirm, autoFocus) {
+         this._confirm = new String(confirm);
+         if(autoFocus) {
+            this._autoFocus = this._confirm;
+         }
+         return this;
+      };
+
+      DialogBuilder.prototype.dismiss = function(dismiss, autoFocus) {
+         this._dismiss = new String(dismiss);
+         if(autoFocus) {
+            this._autoFocus = this._dismiss;
+         }
+         return this;
+      };
+
+      DialogBuilder.prototype.attrs = function(obj) {
+         this._attrs = obj;
+         return this;
+      };
+
+      DialogBuilder.prototype.spinner = function() {
+         this._attrs = this._attrs || {};
+         this._attrs.modal = 'true';
+         this._spinner = true;
+         return this;
+      };
+
+      DialogBuilder.prototype.build = function(callback) {
+         var d = document.createElement('paper-dialog');
+
+         if(this._attrs) {
+            for (var key1 in this._attrs) {
+               d.setAttribute(key1, this._attrs[key1]);
+            }
+         } else if(this._polymerElementRef.defaultAttributes) {
+            for (var key2 in this._polymerElementRef.defaultAttributes) {
+               d.setAttribute(key2, this._polymerElementRef.defaultAttributes[key2]);
+            }
+         }
+
+         d.innerHTML = this._html +
+            (this._title? ('<h2>' + this._title + '</h2>') : '')+
+            (this._body? ('<p>' + this._body + '</p>') : '') +
+            (this._spinner? ('<paper-spinner active></paper-spinner>') : '') +
+            ((this._confirm||this._dismiss) ? (
+               '<div class="buttons">' +
+               (this._dismiss? ('<paper-button dialog-dismiss ' + (this._autoFocus==this._dismiss?'autofocus':'') + '>' + this._dismiss + '</paper-button>') : '') +
+               (this._confirm? ('<paper-button dialog-confirm ' + (this._autoFocus==this._confirm?'autofocus':'') + '>' + this._confirm + '</paper-button>') : '') +
+               '</div>'
+            ):'') + this._appendHtml;
+
+         var b = Polymer.dom(this._polymerElementRef).appendChild(d);
+
+         b.addEventListener('iron-overlay-closed', function(customEvent) {
+            if(callback) callback(customEvent);
+            b['remove']();
+         });
+
+         var originalShow = b['open'];
+         b['open'] = function() {
+            originalShow.bind(b)();
+            return b;
+         };
+         return b;
+      };
+
+      DialogBuilder.prototype.open = function(callback) {
+         return this.build(callback).open();
+      };
+
+      Polymer({
+         is:'dialog-manager',
+
+         properties: {
+            defaultAttributes:{type:Object}
+         },
+
+         ready:function() {
+            this.defaultAttributes = {};
+         },
+
+         start:function() {
+            return new DialogBuilder(this);
+         },
+
+         removeDialog:function(node) {
+            Polymer.dom(this).removeChild(node);
+         },
+
+         getAllDialogs:function() {
+            return Polymer.dom(this).childNodes;
+         },
+
+         removeAllDialogs:function() {
+            Polymer.dom(this).childNodes.forEach(function(child){
+               child.remove();
+            }.bind(this));
+         }
+      });
+
+   </script>
+
+</dom-module>
