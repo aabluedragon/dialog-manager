@@ -17,9 +17,11 @@ open() returns a reference to the constructed paper-dialog so you can manipulate
 `this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').build().open();`
 
 For convenience, you can have a callback for once the dialog has been closed:
-`this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').build().open(function(arg){
+```
+this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').build().open(function(arg){
    console.log("iron-overlay-closed has been triggered");
    if(arg.detail.confirmed === false) {
      console.log('Class dismissed');
    }
-});`
+});
+```
