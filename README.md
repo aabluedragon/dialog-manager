@@ -19,17 +19,23 @@ Then call
 this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').open();
 ```
 
-open() returns a reference to the constructed paper-dialog so you can manipulate it later, while you could also call build() first, which also returns a it, and the call open() after you have finished preparing the dialog:
+start() beins the dialog constuction, open() returns a reference to the constructed paper-dialog so you can manipulate it later, while you could also call build() first, which also returns it, and then call open() after you have finished preparing the dialog:
 ```javascript
 this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').build().open();
 ```
 
 For convenience, you can have a callback for once the dialog has been closed:
 ```javascript
-this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').build().open(function(arg){
+this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').open(function(arg){
    console.log("iron-overlay-closed has been triggered");
    if(arg.detail.confirmed === false) {
      console.log('Class dismissed');
    }
 });
+```
+Note: if you called `build` before open, the the `build` function takes the callback instead of `open`.
+
+You can add a dismiss button:
+```javascript
+this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').dismiss('No thanks').open();
 ```
