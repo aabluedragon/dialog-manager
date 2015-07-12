@@ -9,7 +9,7 @@ dialog-manager's purpose is to allow you to create polymer paper dialogs program
 
 If you have used [angular material dialogs](https://material.angularjs.org/latest/#/demo/material.components.dialog), the syntax should be familiar to you.
 
-Simple dialog example:
+Simple dialog example: ⋅⋅
 Place the element in your html: 
 ```html
 <dialog-manager id="dm"></dialog-manager>
@@ -27,7 +27,7 @@ this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').buil
 To get a reference to your dialog, you could use both `build` or `open`, for example:
 ```javascript
 var dialog = this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').open();
-dialog.close() // The use will see nothing, because we have opened and closed the dialog immediately.
+dialog.close() // The user will see nothing, because we have opened and closed the dialog immediately.
 ```
 Note that after a dialog has finished it's process, the dialog-manager removes it from the DOM completely for convenience.
 
