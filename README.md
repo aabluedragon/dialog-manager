@@ -90,3 +90,13 @@ this.$.dm.start().title('Title').body('Body').confirm('Mkay').attrs({
       }).open();
 ```
 Note that adding attributes like that will make the dialog-manager ignore it's `defaultAttributes` for that particular dialog.
+
+Removing all open dialogs:
+```javscript
+this.$.dm.removeAllDialogs()
+```
+
+Retreiving all open dialogs:
+```javascript
+var allOfEm = this.$.dm.getAllDialogs();
+```
