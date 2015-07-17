@@ -94,9 +94,11 @@
 
          var originalShow = b['open'];
          b['open'] = function() {
-            originalShow.bind(b)();
+            this._polymerElementRef.async(function() {
+               originalShow.bind(b)();
+            });
             return b;
-         };
+         }.bind(this);
          return b;
       };
 
