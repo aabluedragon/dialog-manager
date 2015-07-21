@@ -31,7 +31,7 @@ To get a reference to your dialog, you could use both `build` or `open`, for exa
 var dialog = this.$.dm.start().title('Hello').body('I am your body').confirm('Ah... Ok').open();
 dialog.close() // The user will see nothing, because we have opened and closed the dialog immediately.
 ```
-Note that after a dialog has finished it's process, the dialog-manager removes it from the DOM completely for convenience.
+Note that after a dialog has finished it's process, the dialog-manager removes it from the DOM.
 
 For convenience, you can have a callback for once the dialog has been closed:
 ```javascript
