@@ -72,9 +72,9 @@ Create a spinner dialog:
 ```javascript
 this.$.dm.start().spinner().dismiss('Cancel').open();
 ```
-Note that adding a spinner implicitly adds a `modal="true"` attribute to your dialog to prevent closing it by clicking outside the dialog box.
+Note that adding a spinner implicitly sets a `modal="true"` attribute to your dialog to prevent closing it by clicking outside the dialog box.
 
-Adding default attributes to your dialog-manager, which will be stamped for each paper-dialog it creates:
+Setting the default attributes for a dialog-manager, which will be stamped for each paper-dialog it creates:
 ```javascript
 this.$.dm.defaultAttributes = {
          'entry-animation':'scale-up-animation',
@@ -83,7 +83,7 @@ this.$.dm.defaultAttributes = {
       };
 ```
 
-Adding attributes to your paper-dialog:
+Setting the attributes for dialog:
 ```javascript
 this.$.dm.start().title('Title').body('Body').confirm('Mkay').attrs({
          'entry-animation':'scale-up-animation',
@@ -91,7 +91,7 @@ this.$.dm.start().title('Title').body('Body').confirm('Mkay').attrs({
          'exit-animation':'fade-out-animation'
       }).open();
 ```
-Note that adding attributes like that will make the dialog-manager ignore it's `defaultAttributes` for that particular dialog.
+Note that settings attributes like that will make the dialog-manager ignore it's `defaultAttributes` for that particular dialog.
 
 Removing all open dialogs:
 ```javascript
