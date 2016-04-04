@@ -1,6 +1,6 @@
 {
   "name": "dialog-manager",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "authors": [
     "Alon Amir (aabluedragon@gmail.com)"
   ],
@@ -30,10 +30,10 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~1.0.6",
-    "paper-dialog": "PolymerElements/paper-dialog#~1.0.0",
-    "paper-button": "PolymerElements/paper-button#~1.0.2",
-    "paper-spinner": "PolymerElements/paper-spinner#~1.0.1"
+    "polymer": "Polymer/polymer#<2.0 >=1.0.6",
+    "paper-dialog": "PolymerElements/paper-dialog#<2.0 >=1.0.0",
+    "paper-button": "PolymerElements/paper-button#<2.0 >=1.0.2",
+    "paper-spinner": "PolymerElements/paper-spinner#<2.0 >=1.0.1"
   },
   "repository": {
     "type": "git",

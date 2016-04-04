@@ -79,7 +79,7 @@
             (this._body? ('<p>' + this._body + '</p>') : '') +
             (this._spinner? ('<paper-spinner active></paper-spinner>') : '') +
             ((this._confirm||this._dismiss) ? (
-               '<div class="buttons">' +
+               '<div class="buttons custom">' +
                (this._dismiss? ('<paper-button dialog-dismiss ' + (this._autoFocus==this._dismiss?'autofocus':'') + '>' + this._dismiss + '</paper-button>') : '') +
                (this._confirm? ('<paper-button dialog-confirm ' + (this._autoFocus==this._confirm?'autofocus':'') + '>' + this._confirm + '</paper-button>') : '') +
                '</div>'
