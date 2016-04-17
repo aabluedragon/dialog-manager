@@ -88,6 +88,7 @@
          var b = Polymer.dom(this._polymerElementRef).appendChild(d);
 
          b.addEventListener('iron-overlay-closed', function(customEvent) {
+            customEvent.preventDefault();
             if(callback) callback(customEvent);
             b['remove']();
          });
